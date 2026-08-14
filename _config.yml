@@ -3,7 +3,7 @@ description: Pouzdane informacije, znanje i inicijative o prevenciji i ranom otk
 lang: sr
 encoding: utf-8
 url: ""
-baseurl: ""
+baseurl: "/trace-v2"
 timezone: Europe/Belgrade
 
 collections:
