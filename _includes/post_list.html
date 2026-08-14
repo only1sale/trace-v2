@@ -1,0 +1,107 @@
+<!-- Vesti i aktuelnosti -->
+<div class="wrapper">
+    <div class="container">
+        <div id="post-list" class="row">
+            {% for post in site.posts %}
+                {% assign post_image = post.image | default: "/assets/images/default-news.jpg" %}
+
+                <section class="post-card col-6 col-12-narrower feature">
+                    <div class="image-wrapper">
+                        <a href="{{ post.url | relative_url }}" class="image featured">
+                            <img
+                                src="{{ post_image | relative_url }}"
+                                alt="{{ post.title | escape }}"
+                                loading="lazy"
+                            />
+                        </a>
+                    </div>
+
+                    <header>
+                        <h2>{{ post.title }}</h2>
+                    </header>
+
+                    <p>
+                        {% if post.summary %}
+                            {{ post.summary }}
+                        {% else %}
+                            {{ post.excerpt | strip_html | truncatewords: 35 }}
+                        {% endif %}
+                    </p>
+
+                    <ul class="actions">
+                        <li>
+                            <a href="{{ post.url | relative_url }}" class="button">Pročitaj više</a>
+                        </li>
+                    </ul>
+                </section>
+            {% endfor %}
+        </div>
+
+        <nav id="post-pagination" aria-label="Stranice vesti" hidden>
+            <ul class="actions special"></ul>
+        </nav>
+    </div>
+</div>
+
+<style>
+    #post-list .post-card { margin-bottom: 3em; }
+    #post-list .image.featured img { display: block; width: 100%; height: 280px; object-fit: cover; }
+    #post-pagination .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5em; }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const posts = Array.from(document.querySelectorAll("#post-list .post-card"));
+        const pagination = document.getElementById("post-pagination");
+        const paginationList = pagination.querySelector("ul");
+        const postsPerPage = 8;
+        const pageCount = Math.ceil(posts.length / postsPerPage);
+
+        if (pageCount <= 1) {
+            posts.forEach(function (post) { post.hidden = false; });
+            return;
+        }
+
+        function showPage(pageNumber, updateUrl) {
+            const firstPost = (pageNumber - 1) * postsPerPage;
+            const lastPost = firstPost + postsPerPage;
+
+            posts.forEach(function (post, index) {
+                post.hidden = index < firstPost || index >= lastPost;
+            });
+
+            paginationList.querySelectorAll("a").forEach(function (link, index) {
+                link.classList.toggle("primary", index + 1 === pageNumber);
+            });
+
+            if (updateUrl) {
+                const url = new URL(window.location.href);
+                url.searchParams.set("page", pageNumber);
+                window.history.replaceState({}, "", url);
+            }
+        }
+
+        for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+
+            link.href = "?page=" + pageNumber;
+            link.className = "button small";
+            link.textContent = pageNumber;
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                showPage(pageNumber, true);
+                document.getElementById("post-list").scrollIntoView({ behavior: "smooth" });
+            });
+
+            item.appendChild(link);
+            paginationList.appendChild(item);
+        }
+
+        const requestedPage = Number(new URLSearchParams(window.location.search).get("page"));
+        const initialPage = requestedPage >= 1 && requestedPage <= pageCount ? requestedPage : 1;
+
+        pagination.hidden = false;
+        showPage(initialPage, false);
+    });
+</script>

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<main class="wrapper platform-main">
+    <div class="container" id="main">
+        <article class="platform-content post-content">
+            <p class="post-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y." }}</time></p>
+            {{ content }}
+        </article>
+    </div>
+</main>

@@ -1,0 +1,55 @@
+- key: home
+  title: POČETNA
+  url: /
+- key: cancer
+  title: ŠTA JE RAK?
+  url: /razumevanje-raka/
+  children:
+  - title: Šta je rak?
+    url: /razumevanje-raka/
+  - title: Osnovni tipovi raka
+    url: /vrste-raka/
+- key: prevention
+  title: PREVENCIJA RAKA
+  url: /prevencija-raka/
+- key: screening
+  title: SKRINING RAKA
+  url: /skrining-raka/
+  children:
+  - title: Rak dojke
+    url: /skrining-raka-dojke/
+  - title: Rak grlića materice
+    url: /skrining-raka-grlica-materice/
+  - title: Rak debelog creva i rektuma
+    url: /skrining-kolorektalnog-raka/
+  - title: Koji skrining je namenjen meni?
+    url: /koji-skrining-je-za-mene/
+  - title: Kome treba da se javim?
+    url: /kome-da-se-javim/
+- key: education
+  title: EDUKACIJA
+  children:
+  - title: Edukativni materijali za građane
+    url: /edukativni-materijali/
+  - title: Katalog edukativnih kurseva
+    url: /kursevi/
+  - title: Naučni projekti u Srbiji
+    url: /naucni-projekti-u-srbiji/
+  - title: Edukativni materijali za zdravstvene radnike (Moodle)
+    url: /moodle/
+  - title: Ako želite da znate više
+    url: /ako-zelite-da-znate-vise/
+  url: /edukacija/
+- key: network
+  title: MREŽA ORGANIZACIJA U SRBIJI
+  url: /mreza-organizacija-u-srbiji/
+- key: together
+  title: JEDNI ZA DRUGE
+  children:
+  - title: Zajednički razvoj rešenja za podizanje svesti i prevenciju raka
+    url: /zajednicki-razvoj-resenja/
+  - title: Reč stručnjaka iz oblasti
+    url: /rec-strucnjaka/
+  - title: Iskustva pacijenata
+    url: /iskustva-pacijenata/
+  url: /jedni-za-druge/

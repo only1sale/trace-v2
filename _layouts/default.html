@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+      {% include head.html %}
+  </head>
+
+  {% if page.layout == "home" %}
+    {% assign body_class = "homepage is-preload" %}
+  {% else %}
+    {% assign body_class = page.body_class | default: "" %}
+  {% endif %}
+
+  <body class="{{ body_class }}">
+    <div id="page-wrapper">
+      {% include header.html %}
+
+      {{ content }}
+
+      {% include footer.html %}
+    </div>
+
+    <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/jquery.dropotron.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/browser.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/breakpoints.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/util.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

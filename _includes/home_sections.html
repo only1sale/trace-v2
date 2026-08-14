@@ -1,0 +1,20 @@
+{% assign homepage = site.data.homepage %}
+
+<section class="home-explore wrapper" aria-labelledby="home-explore-title">
+    <div class="container">
+        <header class="section-heading">
+            <h2 id="home-explore-title">{{ homepage.heading }}</h2>
+            <p>{{ homepage.intro }}</p>
+        </header>
+
+        <div class="platform-card-grid">
+            {% for card in homepage.cards %}
+                <a class="platform-card" href="{{ card.url | relative_url }}">
+                    <h3>{{ card.title }}</h3>
+                    <p>{{ card.text }}</p>
+                    <span class="card-link" aria-hidden="true">Saznajte više →</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

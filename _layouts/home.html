@@ -1,0 +1,21 @@
+---
+layout: default
+body_class: "homepage is-preload"
+---
+
+{% include home_sections.html %}
+
+<section class="home-news wrapper">
+    <div class="container">
+        <header class="section-heading compact">
+            <h2>Vesti i aktuelnosti</h2>
+        </header>
+    </div>
+    {% include post_list.html %}
+</section>
+
+{% if content != "" %}
+<div class="wrapper home-extra-content">
+    <div class="container">{{ content }}</div>
+</div>
+{% endif %}

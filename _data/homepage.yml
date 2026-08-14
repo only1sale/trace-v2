@@ -1,0 +1,21 @@
+heading: Istražite sadržaj
+intro: Najvažnije oblasti platforme na jednom mestu. Sadržaj će se dopunjavati kako budu pristizali novi stručni materijali i inicijative.
+cards:
+- title: Šta je rak?
+  text: Osnovne, pouzdane informacije o raku i najčešćim tipovima raka.
+  url: /razumevanje-raka/
+- title: Prevencija raka
+  text: Informacije o faktorima rizika, zdravim navikama i mogućnostima prevencije.
+  url: /prevencija-raka/
+- title: Skrining raka
+  text: Programi ranog otkrivanja i praktične informacije o tome kome su namenjeni.
+  url: /skrining-raka/
+- title: Edukacija
+  text: Materijali za građane i zdravstvene radnike, kursevi i dodatni izvori znanja.
+  url: /edukacija/
+- title: Mreža organizacija u Srbiji
+  text: Mesto za povezivanje ustanova, organizacija, istraživača i drugih aktera.
+  url: /mreza-organizacija-u-srbiji/
+- title: Jedni za druge
+  text: Zajednički razvoj rešenja, reč stručnjaka i iskustva pacijenata.
+  url: /jedni-za-druge/
